@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "master-quant"
+version = "0.1.0"
+description = "Research-first autonomous quant trading laboratory"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.7,<3",
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<3",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+model = ["torch>=2.2,<3", "transformers>=4.40,<5"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
